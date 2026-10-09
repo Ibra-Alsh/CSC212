@@ -1,6 +1,6 @@
 package ProjectDS_P1;
 
-public abstract class Person implements IPerson {
+public abstract class Person implements IPerson throws IllegalArgumentException {
 	
 	protected final int id;
 	protected String name;
@@ -26,7 +26,7 @@ public abstract class Person implements IPerson {
 		return phoneNumber;
 	}
 
-	public void setPhoneNumber(String phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) throws IllegalArgumentException {
 		if(phoneNumber==null||phoneNumber.length()!=10||!phoneNumber.matches("[0-9]+")) {
 		throw new IllegalArgumentException("Phonne number must be exactly 10 digits (numric characters only)");
 		}
