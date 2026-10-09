@@ -1,4 +1,4 @@
-public abstract class Person implements IPerson throws IllegalArgumentException {
+public abstract class Person implements IPerson {
 	
 	protected final int id;
 	protected String name;
