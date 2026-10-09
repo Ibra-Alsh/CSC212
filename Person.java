@@ -1,5 +1,3 @@
-package ProjectDS_P1;
-
 public abstract class Person implements IPerson throws IllegalArgumentException {
 	
 	protected final int id;
