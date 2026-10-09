@@ -1,42 +1,53 @@
-public abstract class Person implements IPerson throws IllegalArgumentException {
-    private String name;
-    private String phoneNumber;
-    private LinkedList<IRide> rideHistory;
+package ProjectDS_P1;
 
-    public Person(String name, String phoneNumber) throws IllegalArgumentException {
-        this.name = name;
-        setPhoneNumber(phoneNumber);
-        this.rideHistory = new LinkedList<>();
-    }
+public abstract class Person implements IPerson {
+	
+	protected final int id;
+	protected String name;
+	protected String phoneNumber;
+	protected LinkedList<IRide> rideHistory;
+	
+	public Person(int id,String name,String phoneNumber) {
+		this.id=id;
+		this.name=name;
+		setPhoneNumber(phoneNumber);
+		rideHistory=new LinkedList<>();
+	}
 
-    public int getId() {
-        return name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public String getName() {
-        return phoneNumber;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
+	public void setPhoneNumber(String phoneNumber) {
+		if(phoneNumber==null||phoneNumber.length()!=10||!phoneNumber.matches("[0-9]+")) {
+		throw new IllegalArgumentException("Phonne number must be exactly 10 digits (numric characters only)");
+		}
+		this.phoneNumber=phoneNumber;
+	}
 
-    public void setPhoneNumber(String phoneNumber) throws IllegalArgumentException {
-        if (phoneNumber.length() == 10) {
-            for (int i = 0; i < phoneNumber.length(); i++) {
-                if (!Character.isDigit(phoneNumber.charAt(i))) {
-                    throw new IllegalArgumentException("Phone number must contain only digits.");
-                }
-            }
-            this.phoneNumber = phoneNumber;
-        }
-        else {
-            throw new IllegalArgumentException("Phone number must be 10 digits long.");
-        }
-    }
+	public int getId() {
+		return id;
+	}
+	
+	public LinkedList<IRide> getRideHistory(){
+		return rideHistory;
+	}
+
+	@Override
+	public String toString() {
+		return "Person: " + id + ", name: " + name + ", phoneNumber: " + phoneNumber ;
+	}
+	
+	
+	
+	
 
 }
