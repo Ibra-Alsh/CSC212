@@ -1,4 +1,4 @@
-package ProjectDS_P1;
+
 
 public interface IRider extends IPerson ,Comparable<IRider>{
 	//return the rider’s email address.
