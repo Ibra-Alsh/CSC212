@@ -1,4 +1,4 @@
-package ProjectDS_P1;
+
 public interface IPerson {
 
 	//return the unique ID of this person.
